@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+:root {
+	--color-primary: #7c5dfa;
+	--color-primary-light: #9277ff;
+
+	--color-gray-light: #dfe3fa;
+	--color-gray-dark: #888eb0;
+	--color-gray-purple: #7e88c3;
+
+	--color-red: #ec5757;
+	--color-red-light: #ff9797;
+
+	--lightBG: #f8f8fb;
+
+	--color-dark-1: #141625;
+	--color-dark-2: #1e2139;
+	--color-dark-3: #252945;
+
+	--text-color: #0c0e16;
+}
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Spartan', sans-serif;
+	font-size: 1.6rem;
+	min-height: 100vh;
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 3.2rem;
+	line-height: 3.6rem;
+	letter-spacing: -1px;
+}
+
+h2 {
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 2.2rem;
+	letter-spacing: -0.63px;
+}
+
+h3 {
+	font-weight: 700;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	letter-spacing: -0.8px;
+}
+
+h4 {
+	font-weight: 700;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	letter-spacing: -0.25px;
+}
+
+.body-1 {
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	letter-spacing: -0.25px;
+}
+
+.body-2 {
+	font-weight: 500;
+	font-size: 1.1rem;
+	line-height: 1.8rem;
+	letter-spacing: -0.23px;
+}
