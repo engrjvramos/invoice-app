@@ -42,13 +42,37 @@
             total invoices
           </p>
         </div>
-        <div class="header__dropdown">
-          <div class="dropdown">
-            <span class="body-1">Filter by status</span>
-            <img src="./assets/icon-arrow-down.svg" alt="">
+        <div class="dropdown">
+          <div class="input-wrapper" id="filterStatus">
+            <span class="body-1">Filter by Status</span>
+            <img src="./assets/icon-arrow-down.svg" alt="" class="filter-arrow">
+          </div>
+          <div class="filter-options">
+            <div class="option">
+              <input type="radio" name="radio" id="draftFilter" class="body-1">
+              <span class="checkmark">
+                <img src="./assets/icon-check.svg" alt="">
+              </span>
+              <label for="draftFilter" class="body-1">Draft</label>
+            </div>
+            <div class="option">
+              <input type="radio" name="radio" id="pendingFilter">
+              <span class="checkmark">
+                <img src="./assets/icon-check.svg" alt="">
+              </span>
+              <label for="pendingFilter" class="body-1">Pending</label>
+            </div>
+            <div class="option">
+              <input type="radio" name="radio" id="paidFilter">
+              <span class="checkmark">
+                <img src="./assets/icon-check.svg" alt="">
+              </span>
+              <label for="paidFilter" class="body-1">Paid</label>
+            </div>
           </div>
         </div>
-        <button class="btn-1">
+        <div class="overlay hidden"></div>
+        <button class="btn-1" id="newInvoice">
           <div class="icon-container">
             <img src="./assets/icon-plus.svg" alt="">
           </div>
@@ -91,7 +115,7 @@
         </div>
       </div>
 
-      <div class="form-modal">
+      <div class="form-modal hidden" id="form-modal">
         <div class="form-modal-body">
           <h1>New Invoice</h1>
           <div class="content">
@@ -149,11 +173,33 @@
               <div class="column-2">
                 <div class="form-control">
                   <label for="invoiceDate" class="body-1">Invoice Date</label>
-                  <input type="text" name="invoiceDate" id="invoiceDate">
+                  <div class="input-wrapper">
+                    <input type="text" name="invoiceDate" id="invoiceDate">
+                    <img src="./assets/icon-calendar.svg" alt="">
+                  </div>
                 </div>
                 <div class="form-control">
                   <label for="paymentTerms" class="body-1">Payment Terms</label>
-                  <input type="text" name="paymentTerms" id="paymentTerms" readonly>
+                  <div class="dropdown">
+                    <div class="input-wrapper">
+                      <input type="text" name="paymentTerms" id="paymentTerms" value="Net 30 Days" readonly>
+                      <img src="./assets/icon-arrow-down.svg" class="dropdown-arrow" alt="">
+                    </div>
+                    <div class="payment-options hidden">
+                      <div class="option">
+                        <h4>Net 1 Day</h4>
+                      </div>
+                      <div class="option">
+                        <h4>Net 7 Days</h4>
+                      </div>
+                      <div class="option">
+                        <h4>Net 14 Days</h4>
+                      </div>
+                      <div class="option">
+                        <h4>Net 30 Days</h4>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 

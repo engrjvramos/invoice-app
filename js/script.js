@@ -30,15 +30,63 @@ const itemTotal = document.getElementById('itemTotal');
 const addNewItemBtn = document.getElementById('addNewItem');
 const itemListForm = document.getElementById('itemListForm');
 
+const newInvoiceBtn = document.getElementById('newInvoice');
+
+const formModal = document.getElementById('form-modal');
+
+const dropdownFilter = document.querySelector('.dropdown');
+const filterStatus = document.getElementById('filterStatus');
+const filterOptions = document.querySelector('.filter-options');
+const filterOption = document.querySelector('.filter-options .option');
+const filterArrow = document.querySelector('.filter-arrow');
+const overlay = document.querySelector('.overlay');
+
+function toggleFilterDropdown() {
+	dropdownFilter.classList.toggle('active');
+	overlay.classList.toggle('hidden');
+	filterArrow.classList.toggle('active');
+}
+
+filterStatus.addEventListener('click', toggleFilterDropdown);
+overlay.addEventListener('click', toggleFilterDropdown);
+
+document.addEventListener('keydown', (e) => {
+	if (e.key === 'Escape') {
+		if (dropdownFilter.classList.contains('active')) {
+			dropdownFilter.classList.remove('active');
+		}
+
+		if (!formModal.classList.contains('hidden')) {
+			formModal.classList.add('hidden');
+			paymentOptions.classList.add('hidden');
+			dropdownArrow.classList.remove('active');
+		}
+	}
+});
+
+const paymentTerms = document.getElementById('paymentTerms');
+const paymentOptions = document.querySelector('.payment-options');
+const paymentOption = document.querySelectorAll('.payment-options .option');
+const dropdownArrow = document.querySelector('.dropdown-arrow');
+
+const senderStreet = document.getElementById('senderStreet');
+
 let itemCount = 0;
 
-addNewItemBtn.addEventListener('click', () => {
+function openFormModal() {
+	formModal.classList.remove('hidden');
+	dropdownFilter.classList.remove('active');
+	senderStreet.focus();
+}
+
+function onAddRow() {
+	const rowLength = document.querySelectorAll('#itemListForm .row').length + 1;
 	itemCount++;
 
 	itemListForm.innerHTML += `
 		<div class="row" id="row${itemCount}">
 			<div class="form-control">
-				<input type="text" name="itemName${itemCount}" id="itemName${itemCount}" placeholder="item${itemCount}">
+				<input type="text" name="itemName${itemCount}" id="itemName${itemCount}">
 			</div>
 			<div class="form-control">
 				<input type="text" name="itemQty${itemCount}" id="itemQty${itemCount}">
@@ -47,7 +95,7 @@ addNewItemBtn.addEventListener('click', () => {
 				<input type="text" name="itemPrice${itemCount}" id="itemPrice${itemCount}">
 			</div>
 			<div class="form-control">
-				<input type="text" value="row-${itemCount}" name="itemTotal${itemCount}" id="itemTotal1" class="itemTotal"
+				<input type="text" value="row-${rowLength}" name="itemTotal${itemCount}" id="itemTotal1" class="itemTotal"
 					readonly="readonly">
 			</div>
 			<div class="deleteBtn">
@@ -58,18 +106,51 @@ addNewItemBtn.addEventListener('click', () => {
 				</svg>
 			</div>
 		</div>`;
-});
+}
 
 function onDeleteRow(e) {
+	const rowLength = document.querySelectorAll('#itemListForm .row').length - 1;
 	if (
 		!e.target.classList.contains('delete') &&
 		!e.target.classList.contains('deleteBtn')
 	) {
 		return;
+	} else {
+		console.log(rowLength);
+		itemCount--;
 	}
 
 	const btn = e.target;
 	btn.closest('.row').remove();
 }
 
+function closeFormModal(e) {
+	if (e.target.classList.contains('form-modal')) {
+		formModal.classList.add('hidden');
+
+		paymentOptions.classList.add('hidden');
+		dropdownArrow.classList.remove('active');
+	}
+}
+
+// DROPDOWN MENU FUNCTIONALITY
+
+function toggleDropdown() {
+	paymentOptions.classList.toggle('hidden');
+	dropdownArrow.classList.toggle('active');
+}
+
+for (let i = 0; i < paymentOption.length; i++) {
+	paymentOption[i].addEventListener('click', () => {
+		toggleDropdown();
+
+		paymentTerms.value = paymentOption[i].innerText.trim();
+	});
+}
+
+paymentTerms.addEventListener('click', toggleDropdown);
+
+newInvoiceBtn.addEventListener('click', openFormModal);
+formModal.addEventListener('click', closeFormModal);
+addNewItemBtn.addEventListener('click', onAddRow);
 itemListForm.addEventListener('click', onDeleteRow);
