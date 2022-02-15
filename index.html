@@ -18,88 +18,181 @@
   <header>
     <div class="sidebar">
       <div class="container">
-
+        <div class="container__logo">
+          <img src="./assets/logo.svg" alt="">
+        </div>
+        <div class="container__theme-btn">
+          <img class="sun" src="./assets/icon-sun.svg" alt="">
+          <img class="moon" src="./assets/icon-moon.svg" alt="">
+        </div>
+        <div class="container__avatar">
+          <img src="./assets/image-avatar.jpg" alt="">
+        </div>
       </div>
     </div>
   </header>
 
-  <h1>Aliquam portitor mauris sit amet orci Aenean</h1>
-  <h2>Aliquam portitor mauris sit amet orci Aenean</h2>
-  <h3>Aliquam portitor mauris sit amet orci Aenean</h3>
-  <h4>Aliquam portitor mauris sit amet orci Aenean</h4>
+  <main>
+    <div class="container">
+      <div class="header">
+        <div class="header__title">
+          <h1>Invoices</h1>
+          <p class="body-1">
+            There are <span id=" total-invoices">7</span>
+            total invoices
+          </p>
+        </div>
+        <div class="header__dropdown">
+          <div class="dropdown">
+            <span class="body-1">Filter by status</span>
+            <img src="./assets/icon-arrow-down.svg" alt="">
+          </div>
+        </div>
+        <button class="btn-1">
+          <div class="icon-container">
+            <img src="./assets/icon-plus.svg" alt="">
+          </div>
+          <h4>New Invoice</h4>
+        </button>
 
-  <p class="body-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aperiam, sed voluptatum est
-    perspiciatis ipsa eaque eveniet perferendis provident, dolores dolorem? Itaque asperiores deserunt accusamus eius
-    culpa. Sint neque labore velit perspiciatis doloribus consequatur a earum quidem optio autem hic, magni praesentium
-    fugit ut nam ipsam assumenda eveniet laudantium iusto.</p>
+      </div>
 
+      <div class="content">
+        <div class="invoice">
+          <div class="invoice__number">
+            <h4><span>#</span>RT3080</h4>
+          </div>
+          <div class="invoice__due-date">
+            <p class="body-1">Due 19 Aug 2021</p>
+          </div>
+          <div class="invoice__name">
+            <p class="body-1">Jensen Huang</p>
+          </div>
+          <div class="invoice__amount">
+            <h3>&pound; 1,800.90</h3>
+          </div>
+          <div class="invoice__status">
+            <div class="draft">
+              <span class="dot"></span>
+              <h4 id="status">Draft</h4>
+            </div>
+          </div>
+          <div class="invoice__arrow">
+            <img src="./assets/icon-arrow-right.svg" alt="">
+          </div>
+        </div>
 
-  <p class="body-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nam atque fugiat? Dolore similique
-    temporibus ipsam. Blanditiis nihil laborum libero provident ratione mollitia repudiandae beatae quisquam,
-    voluptatibus vel ipsa deserunt officiis, animi pariatur? Molestiae, laudantium nihil quas animi aut fugiat illum
-    provident adipisci voluptate totam modi, voluptatibus laboriosam, consequuntur esse.</p>
-  Invoices
-  There are
-  <!-- Add number here --> total invoices
+        <div class="empty">
+          <div class="empty__image">
+            <img src="./assets/illustration-empty.svg" alt="">
+          </div>
+          <h2>There is nothing here</h2>
+          <p class="body-1">Create an invoice by clicking the <span>New Invoice</span> button and get started</p>
+        </div>
+      </div>
 
-  Filter by status
-  Draft
-  Pending
-  Paid
+      <div class="form-modal">
+        <div class="form-modal-body">
+          <h1>New Invoice</h1>
+          <div class="content">
+            <div class="field-container">
+              <h4>Bill From</h4>
+              <div class="form-control">
+                <label for="senderStreet" class="body-1">Street Address</label>
+                <input type="text" name="senderStreet" id="senderStreet">
+              </div>
+              <div class="column-3">
+                <div class="form-control">
+                  <label for="senderCity" class="body-1">City</label>
+                  <input type="text" name="senderCity" id="senderCity">
+                </div>
+                <div class="form-control">
+                  <label for="senderPostal" class="body-1">Post Code</label>
+                  <input type="text" name="senderPostal" id="senderPostal">
+                </div>
+                <div class="form-control">
+                  <label for="senderCountry" class="body-1">Country</label>
+                  <input type="text" name="senderCountry" id="senderCountry">
+                </div>
+              </div>
+            </div>
 
-  New Invoice
+            <div class="field-container">
+              <h4>Bill To</h4>
+              <div class="form-control">
+                <label for="clientName" class="body-1">Client's Name</label>
+                <input type="text" name="clientName" id="clientName">
+              </div>
+              <div class="form-control">
+                <label for="clientEmail" class="body-1">Client's Email</label>
+                <input type="text" name="clientEmail" id="clientEmail">
+              </div>
+              <div class="form-control">
+                <label for="clientStreet" class="body-1">Street Address</label>
+                <input type="text" name="clientStreet" id="clientStreet">
+              </div>
+              <div class="column-3">
+                <div class="form-control">
+                  <label for="clientCity" class="body-1">City</label>
+                  <input type="text" name="clientCity" id="clientCity">
+                </div>
+                <div class="form-control">
+                  <label for="clientPostal" class="body-1">Post Code</label>
+                  <input type="text" name="clientPostal" id="clientPostal">
+                </div>
+                <div class="form-control">
+                  <label for="clientCountry" class="body-1">Country</label>
+                  <input type="text" name="clientCountry" id="clientCountry">
+                </div>
+              </div>
 
-  <!-- No invoices -->
-  There is nothing here
-  Create an invoice by clicking the New Invoice button and get started
-  <!-- No invoices end -->
+              <div class="column-2">
+                <div class="form-control">
+                  <label for="invoiceDate" class="body-1">Invoice Date</label>
+                  <input type="text" name="invoiceDate" id="invoiceDate">
+                </div>
+                <div class="form-control">
+                  <label for="paymentTerms" class="body-1">Payment Terms</label>
+                  <input type="text" name="paymentTerms" id="paymentTerms" readonly>
+                </div>
+              </div>
 
-  <!-- Create new invoice form -->
-  Go back
+              <div class="form-control">
+                <label for="projectDescription" class="body-1">Project Description</label>
+                <input type="text" name="projectDescription" id="projectDescription">
+              </div>
+            </div>
+            <div class="field-container">
+              <h2>Item List</h2>
+              <div class="row-labels">
+                <label class="body-1">Item Name</label>
+                <label class="body-1">Qty.</label>
+                <label class="body-1">Item Price</label>
+                <label class="body-1">Total</label>
+              </div>
+              <form id="itemListForm">
 
-  New Invoice
-
-  Bill From
-
-  Street Address
-  City
-  Post Code
-  Country
-
-  Bill To
-
-  Client's Name
-  Client's Email
-  e.g. email@example.com
-  Street Address
-  City
-  Post Code
-  Country
-
-  Invoice Date
-
-  Payment Terms
-  Net 1 day
-  Net 7 days
-  Net 14 days
-  Net 30 days
-
-  Project Description
-  e.g. Graphic Design Service
-
-  Item List
-
-  Item Name
-  Qty.
-  Price
-  Total
-
-  Add New Item
-
-  Discard
-  Save as Draft
-  Save & Send
-  <!-- Create new invoice end -->
+              </form>
+              <button class="btn-6" id="addNewItem">
+                <span>+ Add New Item</span>
+              </button>
+            </div>
+          </div>
+          <div class="buttons-area">
+            <button class="btn-3">
+              <h4>Discard</h4>
+            </button>
+            <button class="btn-4">
+              <h4>Save as Draft</h4>
+            </button>
+            <button class="btn-2">
+              <h4>Save & Send</h4>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="./js/script.js"></script>
 </body>
