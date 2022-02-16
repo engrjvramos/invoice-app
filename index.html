@@ -42,7 +42,7 @@
             total invoices
           </p>
         </div>
-        <div class="dropdown">
+        <div class="dropdown-filter">
           <div class="input-wrapper" id="filterStatus">
             <span class="body-1">Filter by Status</span>
             <img src="./assets/icon-arrow-down.svg" alt="" class="filter-arrow">
@@ -71,42 +71,19 @@
             </div>
           </div>
         </div>
-        <div class="overlay hidden"></div>
+        <div class="overlay-filter hidden"></div>
         <button class="btn-1" id="newInvoice">
           <div class="icon-container">
             <img src="./assets/icon-plus.svg" alt="">
           </div>
           <h4>New Invoice</h4>
         </button>
-
       </div>
+      <!--==== INVOICE HOME CONTENT ====-->
+      <div class="content" id="invoiceSummary">
 
-      <div class="content">
-        <div class="invoice">
-          <div class="invoice__number">
-            <h4><span>#</span>RT3080</h4>
-          </div>
-          <div class="invoice__due-date">
-            <p class="body-1">Due 19 Aug 2021</p>
-          </div>
-          <div class="invoice__name">
-            <p class="body-1">Jensen Huang</p>
-          </div>
-          <div class="invoice__amount">
-            <h3>&pound; 1,800.90</h3>
-          </div>
-          <div class="invoice__status">
-            <div class="draft">
-              <span class="dot"></span>
-              <h4 id="status">Draft</h4>
-            </div>
-          </div>
-          <div class="invoice__arrow">
-            <img src="./assets/icon-arrow-right.svg" alt="">
-          </div>
-        </div>
 
-        <div class="empty">
+        <div class="empty" id="emptyIllustration">
           <div class="empty__image">
             <img src="./assets/illustration-empty.svg" alt="">
           </div>
@@ -115,7 +92,7 @@
         </div>
       </div>
 
-      <div class="form-modal hidden" id="form-modal">
+      <div class="form-modal" id="form-modal">
         <div class="form-modal-body">
           <h1>New Invoice</h1>
           <div class="content">
@@ -180,7 +157,7 @@
                 </div>
                 <div class="form-control">
                   <label for="paymentTerms" class="body-1">Payment Terms</label>
-                  <div class="dropdown">
+                  <div class="dropdown-terms">
                     <div class="input-wrapper">
                       <input type="text" name="paymentTerms" id="paymentTerms" value="Net 30 Days" readonly>
                       <img src="./assets/icon-arrow-down.svg" class="dropdown-arrow" alt="">
@@ -200,6 +177,7 @@
                       </div>
                     </div>
                   </div>
+                  <div class="overlay-terms hidden"></div>
                 </div>
               </div>
 
@@ -225,13 +203,13 @@
             </div>
           </div>
           <div class="buttons-area">
-            <button class="btn-3">
+            <button class="btn-3" id="discardBtn">
               <h4>Discard</h4>
             </button>
-            <button class="btn-4">
+            <button class="btn-4" id="draftBtn">
               <h4>Save as Draft</h4>
             </button>
-            <button class="btn-2">
+            <button class="btn-2" id="saveBtn">
               <h4>Save & Send</h4>
             </button>
           </div>
@@ -240,6 +218,7 @@
     </div>
   </main>
 
+  <script type="text/javascript" src="./data.json"></script>
   <script src="./js/script.js"></script>
 </body>
 

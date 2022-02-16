@@ -3,6 +3,7 @@ main {
 	padding-bottom: 7.2rem;
 	padding-left: 10.3rem;
 	min-height: 100vh;
+
 	.container {
 		max-width: 73rem;
 		margin: 0 auto;
@@ -26,7 +27,7 @@ main {
 				}
 			}
 
-			.dropdown {
+			.dropdown-filter {
 				margin-right: 4rem;
 				position: relative;
 
@@ -49,7 +50,7 @@ main {
 					z-index: 999;
 				}
 
-				&.active ~ .overlay {
+				&.active ~ .overlay-filter {
 					display: block;
 				}
 
@@ -151,7 +152,7 @@ main {
 				}
 			}
 
-			.overlay {
+			.overlay-filter {
 				display: none;
 				position: absolute;
 				top: 0;
@@ -164,14 +165,22 @@ main {
 
 		.content {
 			.invoice {
-				background-color: #fff;
+				background-color: var(--input-bg-color);
+				border: 1px solid var(--input-bg-color);
 				border-radius: 8px;
 				padding: 1.6rem 3.2rem;
 				margin-bottom: 1.6rem;
 				box-shadow: var(--box-shadow-1);
-				display: none;
+				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				cursor: pointer;
+				transition: border 0.3s ease;
+				animation: moveInLeft 1s;
+
+				&:hover {
+					border: 1px solid var(--color-primary);
+				}
 
 				&__number {
 					span {
@@ -237,18 +246,18 @@ main {
 			left: 0;
 			background: rgba(0, 0, 0, 0.5);
 			overflow: hidden;
-			visibility: visible;
-			opacity: 1;
-			z-index: 99;
 			transition: all 0.6s ease;
+			visibility: none;
+			opacity: 0;
+			z-index: -1;
 
-			&.hidden {
-				visibility: none;
-				opacity: 0;
-				z-index: -1;
+			&.active {
+				visibility: visible;
+				opacity: 1;
+				z-index: 99;
 
 				.form-modal-body {
-					transform: translateX(-72rem);
+					transform: translateX(0);
 				}
 			}
 
@@ -259,8 +268,8 @@ main {
 				padding: 5.6rem 3.2rem 0 15.9rem;
 				border-radius: 0 2rem 2rem 0;
 				position: relative;
-				transform: translateX(0);
-				transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+				transform: translateX(-72rem);
+				transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 				h1 {
 					font-size: 2.4rem;
@@ -335,7 +344,7 @@ main {
 								}
 							}
 
-							.dropdown {
+							.dropdown-terms {
 								position: relative;
 
 								.payment-options {
@@ -392,6 +401,9 @@ main {
 										transform: translateY(-50%) rotate(180deg);
 									}
 								}
+							}
+
+							.overlay-terms {
 							}
 						}
 

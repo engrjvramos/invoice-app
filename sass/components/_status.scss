@@ -1,17 +1,24 @@
-.paid {
+.status {
 	width: 10.4rem;
 	height: 4rem;
-	background: rgba(51, 214, 159, 0.06);
 	border-radius: 6px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
 	span {
 		width: 0.8rem;
 		height: 0.8rem;
 		border-radius: 50%;
-		background: rgb(51, 214, 159);
 		margin-right: 0.8rem;
+	}
+}
+
+.paid {
+	background: rgba(51, 214, 159, 0.06);
+
+	span {
+		background: rgb(51, 214, 159);
 	}
 
 	h4 {
@@ -20,19 +27,10 @@
 }
 
 .pending {
-	width: 10.4rem;
-	height: 4rem;
 	background: rgba(255, 143, 0, 0.06);
-	border-radius: 6px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+
 	span {
-		width: 0.8rem;
-		height: 0.8rem;
-		border-radius: 50%;
 		background: rgb(255, 143, 0);
-		margin-right: 0.8rem;
 	}
 
 	h4 {
@@ -41,17 +39,9 @@
 }
 
 .draft {
-	width: 10.4rem;
-	height: 4rem;
 	background: rgba(55, 59, 83, 0.06);
-	border-radius: 6px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+
 	span {
-		width: 0.8rem;
-		height: 0.8rem;
-		border-radius: 50%;
 		background: rgb(55, 59, 83);
 		margin-right: 0.8rem;
 	}
